@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head></head>
+ <body>
+     <canvas id="canvas" width="578" height="200"></canvas>
+     <script>
+         const canvas=document.getElementById('canvas');
+         const context=canvas.getContext('2d');
+
+         context.beginPath();
+         context.moveTo(100,150);
+         context.lineTo(450,50);
+         context.stroke();
+     </script>
+ </body>
+</html>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket=io.connect('https://localhost');
+    socket.on('news', function(data) {
+        console.log(data);
+        socket.emit('other event', {
+            my:  'data'
+        });
+    });
+</script>
+
+<br><br><br><br>
+
+<footer>
+    <h1>빅데이터과 2302571 이서진</h1>
+</footer>
